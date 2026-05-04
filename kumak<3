@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Affet Beni</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      margin-bottom: 40px;
+      color: #333;
+    }
+
+    .heart {
+      color: #FFD700; /* SARI KALP */
+      font-size: 3rem;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    button {
+      padding: 15px 40px;
+      font-size: 1.3rem;
+      border: none;
+      border-radius: 40px;
+      cursor: pointer;
+      transition: all 0.4s ease;
+    }
+
+    #yes {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    #no {
+      background-color: #f44336;
+      color: white;
+    }
+
+    .fullscreen-yes {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100vw;
+      height: 100vh;
+      font-size: 4rem;
+      border-radius: 0;
+      z-index: 999;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>
+      Bu eşek Tarığı affet 🙏<br>
+      Seni kırdığı için çok pişman <span class="heart">💛</span>
+    </h1>
+
+    <div class="buttons">
+      <button id="yes">Evet</button>
+      <button id="no">Hayır</button>
+    </div>
+  </div>
+
+  <script>
+    const yesBtn = document.getElementById('yes');
+    const noBtn = document.getElementById('no');
+
+    let scale = 1;
+
+    noBtn.addEventListener('click', () => {
+      scale += 0.2;
+      yesBtn.style.transform = `scale(${scale})`;
+
+      if (scale >= 5) {
+        yesBtn.classList.add('fullscreen-yes');
+        yesBtn.textContent = 'EVET 💛';
+        noBtn.style.display = 'none';
+      }
+    });
+
+    yesBtn.addEventListener('click', () => {
+      alert('İyi ki varsın 💛');
+    });
+  </script>
+</body>
+</html>
